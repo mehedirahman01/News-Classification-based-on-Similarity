@@ -6,6 +6,7 @@ Created on Mon Apr  6 01:16:14 2020
 """
 import pandas as pd
 import numpy as np
+import matplotlib as plt
 
 
 
@@ -40,7 +41,19 @@ df1=df.drop(['authors','link','date','category'],axis=1)
 df1['text']= df1['headline']+" "+df1['short_description']
                                      
 df2=df1.drop(['headline','short_description'],axis=1)    
+
+df2.to_csv (r'merged.csv', index = False, header=True)
                                  
+df3=pd.read_csv("merged.csv")
+
+fig=df3['category_merged'].value_counts().plot('bar')
+
+figure=fig.get_figure()
+
+figure.savefig('myfile.png', bbox_inches = "tight", dpi=500)
+
+
+
                                      
                                      
                                      

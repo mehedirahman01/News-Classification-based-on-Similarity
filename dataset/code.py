@@ -84,4 +84,6 @@ for index,entry in enumerate(df3['text']):
            
     # The final processed set of words for each iteration will be stored in 'text_final'
     df3.loc[index,'text_final'] = str(Final_words)
-    print(Final_words)
+    #print(Final_words)
+
+df3.to_csv (r'cleaned.csv', index = False, header=True)
